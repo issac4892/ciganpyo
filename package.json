@@ -17,13 +17,11 @@
         "nsis"
       ],
       "icon": "./resources/Icon.ico",
-      "nsis": {
-        "artifactName": "CiGanPyo_Setup.exe"
-      }
     },
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "CiGanPyo_Setup.exe"
     }
   },
   "license": "MIT",
