@@ -16,7 +16,10 @@
         "zip",
         "nsis"
       ],
-      "icon": "./resources/Icon.ico"
+      "icon": "./resources/Icon.ico",
+      "nsis": {
+        "artifactName": "CiGanPyo_Setup.exe"
+      }
     },
     "nsis": {
       "oneClick": false,
