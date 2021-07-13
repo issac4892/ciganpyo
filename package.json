@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "deploy": "electron-builder --windows nsis:ia32"
+    "deploy": "build --win -p always"
   },
   "build": {
     "productName": "시간표",
     "appId": "me.monun.comciganwrapper",
     "asar": true,
+    "publish": [{
+          "provider": "github",
+          "owner": "issac4892",
+          "repo": "ciganpyo"
+    }],
     "win": {
       "target": [
         "zip",
@@ -30,5 +35,8 @@
     "electron": "^13.1.6",
     "electron-builder": "^22.11.7",
     "eslint": "^7.30.0"
+  },
+  "dependencies": {
+    "electron-updater": "^4.3.9"
   }
 }

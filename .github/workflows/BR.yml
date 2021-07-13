@@ -30,6 +30,9 @@ jobs:
     - name: Install Dependencies
       run: yarn install
     
+    - name: Set GH_TOKEN
+      run: [Environment]::SetEnvironmentVariable("GH_TOKEN","${{ secrets.TOKEN }}","User")
+
     - name: Build
       run: yarn deploy
     
