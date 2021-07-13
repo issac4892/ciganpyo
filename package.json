@@ -1,0 +1,33 @@
+{
+  "name": "ciganpyo",
+  "version": "1.0.0",
+  "description": "i am lazy",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "deploy": "electron-builder --windows nsis:ia32"
+  },
+  "build": {
+    "productName": "CiGanPyo",
+    "appId": "me.monun.comciganwrapper",
+    "asar": true,
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "./resources/Icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "builder-util": "^22.11.8",
+    "electron": "^13.1.6",
+    "electron-builder": "^22.11.7",
+    "eslint": "^7.30.0"
+  }
+}
