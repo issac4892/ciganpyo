@@ -8,7 +8,7 @@
     "deploy": "electron-builder --windows nsis:ia32"
   },
   "build": {
-    "productName": "CiGanPyo",
+    "productName": "시간표",
     "appId": "me.monun.comciganwrapper",
     "asar": true,
     "win": {
