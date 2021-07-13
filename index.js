@@ -3,7 +3,7 @@ const {app, BrowserWindow} = require('electron')
 function createWindow () {  // 브라우저 창을 생성
     let win = new BrowserWindow({
       width: 450,
-      height: 650,
+      height: 700,
       webPreferences: {
         nodeIntegration: true
       }
