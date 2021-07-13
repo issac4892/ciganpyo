@@ -11,11 +11,13 @@
     "productName": "시간표",
     "appId": "me.monun.comciganwrapper",
     "asar": true,
-    "publish": [{
-          "provider": "github",
-          "owner": "issac4892",
-          "repo": "ciganpyo"
-    }],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "issac4892",
+        "repo": "ciganpyo"
+      }
+    ],
     "win": {
       "target": [
         "zip",
@@ -37,6 +39,7 @@
     "eslint": "^7.30.0"
   },
   "dependencies": {
+    "electron-log": "^4.3.5",
     "electron-updater": "^4.3.9"
   }
 }
