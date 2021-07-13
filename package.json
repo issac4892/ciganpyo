@@ -16,7 +16,7 @@
         "zip",
         "nsis"
       ],
-      "icon": "./resources/Icon.ico",
+      "icon": "./resources/Icon.ico"
     },
     "nsis": {
       "oneClick": false,
