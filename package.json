@@ -19,9 +19,9 @@
       "icon": "./resources/Icon.ico"
     },
     "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
-      "artifactName": "CiGanPyo_Setup.exe"
+      "allowToChangeInstallationDirectory": false,
+      "artifactName": "CiGanPyo_Setup.exe",
+      "oneClick": true
     }
   },
   "license": "MIT",
