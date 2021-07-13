@@ -31,7 +31,7 @@ jobs:
       run: yarn install
     
     - name: Set Token
-      run: $env:GH_TOKEN = ${{  secrets.TOKEN  }}
+      run: $env:GH_TOKEN = "${{  secrets.TOKEN  }}"
 
     - name: Build
       run: yarn deploy
