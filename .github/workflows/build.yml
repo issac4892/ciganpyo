@@ -18,13 +18,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14.17.1
-      - name: Set Version
-        run: echo "::set-output name=version::$(echo ${{ github.sha }} | cut -c -6)"
-        id: version
-
-      - name: Set Release Name
-        run: echo "::set-output name=release_name::$(echo ${{ github.sha }} | cut -c -6)"
-        id: release_name
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
@@ -35,4 +31,4 @@ jobs:
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
-          release: ${{ steps.version.outputs.version }}
+          release: ${{ steps.package-version.outputs.current-version}}
