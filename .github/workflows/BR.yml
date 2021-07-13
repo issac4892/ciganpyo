@@ -35,9 +35,6 @@ jobs:
 
     - name: Build
       run: yarn deploy
-    
-    - name: Zip Build File
-      run: mv dist/CiGanPyo_setup.exe ./CiGanPyo_setup.exe && zip CiGanPyo_setup.exe.zip CiGanPyo_setup.exe && rm -rf CiGanPyo_setup.exe
 
     - name: Set Version
       run: echo "::set-output name=version::$(echo ${{ github.sha }} | cut -c -6)"
@@ -63,8 +60,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: CiGanPyo_setup.zip
-          asset_name: CiGanPyo_setup.zip
+          asset_path: dist/CiGanPyo_setup.exe
+          asset_name: CiGanPyo_setup.exe
           asset_content_type: application/zip
       
       
