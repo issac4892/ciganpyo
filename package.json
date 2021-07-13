@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "deploy": "electron-builder --win --linux -publish always"
+    "deploy": "electron-builder --win -publish always"
   },
   "build": {
     "productName": "시간표",
