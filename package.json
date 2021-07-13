@@ -1,11 +1,11 @@
 {
   "name": "ciganpyo",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "i am lazy",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "deploy": "electron-builder --win -p always"
+    "deploy": "electron-builder --win --linux -publish always"
   },
   "build": {
     "productName": "시간표",
