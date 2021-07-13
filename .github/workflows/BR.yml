@@ -1,0 +1,67 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Build&Release
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.17.1]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Install yarn
+      run: npm install -g yarn
+    
+    - name: Install Dependencies
+      run: yarn install
+    
+    - name: Build
+      run: yarn deploy
+    
+    - name: Zip Build File
+      run: mv dist/CiGanPyo_setup.exe ./CiGanPyo_setup.exe && zip CiGanPyo_setup.exe.zip CiGanPyo_setup.exe && rm -rf CiGanPyo_setup.exe
+
+    - name: Set Version
+      run: echo "::set-output name=version::$(echo ${{ github.sha }} | cut -c -6)"
+      id: version
+
+    - name: Set Release Name
+      run: echo "::set-output name=release_name::$(echo ${{ github.sha }} | cut -c -6)"
+      id: release_name
+      
+    - uses: actions/create-release@v1
+      id: create_release
+      with:
+          draft: false
+          prerelease: false
+          release_name: ${{ steps.version.outputs.release_name }}
+          tag_name: ${{ steps.version.outputs.version }}
+      env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+    - name: Upload Artifact
+      uses: actions/upload-release-asset@v1
+      env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: CiGanPyo_setup.zip
+          asset_name: CiGanPyo_setup.zip
+          asset_content_type: application/zip
+      
+      
