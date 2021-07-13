@@ -2,6 +2,12 @@ const {app, BrowserWindow} = require('electron')
 const {autoUpdater} = require('electron-updater')
 const log = require('electron-log')
 
+Object.defineProperty(app, 'isPackaged', {
+  get() {
+    return true
+  }
+})
+
 // Logger
 
 autoUpdater.logger = log
@@ -52,11 +58,6 @@ if (process.platform === 'darwin') {
   })
 }
 
-app.on('ready', function()  {
-  autoUpdater.checkForUpdatesAndNotify();
-  log.info(app.getVersion())
-});
-
 // Updater End
 
 function createWindow () {  // 브라우저 창을 생성
@@ -71,5 +72,13 @@ function createWindow () {  // 브라우저 창을 생성
     win.loadFile('./index.html')
     win.removeMenu()
   }
-  
-  app.on('ready', createWindow);
+
+  app.on('ready', function()  {
+    autoUpdater.checkForUpdatesAndNotify();
+    log.info(app.getVersion())
+    createWindow()
+  })
+
+  app.on('window-all-closed', () => {
+    app.quit()
+  })
