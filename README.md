@@ -1,4 +1,5 @@
 # V2 built with, react, unstable, even may not work. Please avoid using this.
+# This repo uses yarn v2.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
