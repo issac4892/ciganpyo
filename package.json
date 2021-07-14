@@ -10,13 +10,16 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1",
-    "xo": "^0.41.0"
+    "web-vitals": "^1.0.1"
   },
   "devDependencies": {
     "builder-util": "^22.11.8",
     "electron": "^13.1.6",
-    "electron-builder": "^22.11.7"
+    "electron-builder": "^22.11.7",
+    "eslint-config-xo-react": "^0.25.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "xo": "^0.41.0"
   },
   "build": {
     "productName": "시간표",
@@ -45,7 +48,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "xo && react-scripts test",
     "eject": "react-scripts eject",
     "electron:start": "electron .",
     "deploy": "electron-builder --win -p always"
