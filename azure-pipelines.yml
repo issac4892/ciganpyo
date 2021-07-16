@@ -15,8 +15,11 @@ steps:
     versionSpec: '16.4.2'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install -g yarn
-    yarn install
-    yarn deploy
+- script: npm install -g yarn
+  displayName: 'Install yarn'
+
+- script: yarn install
+  displayName: 'Install dependencies'
+  
+- script: yarn deploy
   displayName: 'Build and Deploy'
