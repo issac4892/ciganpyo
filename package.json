@@ -15,7 +15,9 @@
       {
         "provider": "github",
         "owner": "issac4892",
-        "repo": "ciganpyo"
+        "repo": "ciganpyo",
+        "releaseType": "release",
+        "vPrefixedTagName": true
       }
     ],
     "win": {
