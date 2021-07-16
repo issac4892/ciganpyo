@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Notification} = require('electron')
 const {autoUpdater} = require('electron-updater')
 const log = require('electron-log')
 
@@ -7,6 +7,10 @@ Object.defineProperty(app, 'isPackaged', {
     return true
   }
 })
+
+function notifyupdate () {
+  new Notification({title: "업데이트 가능", body: "업데이트를 확인했습니다. 다운로드 후 다음 실행 때 업데이트 될 예정입니다."}).show()
+}
 
 // Logger
 
@@ -33,6 +37,8 @@ autoUpdater.on('download-progress', (progressObj) => {
 })
 autoUpdater.on('update-downloaded', (info) => {
   log.info('Update downloaded')
+  notifyupdate()
+  autoUpdater.quitAndInstall()
 })
 
 // Updater Start
@@ -74,7 +80,7 @@ function createWindow () {  // 브라우저 창을 생성
   }
 
   app.on('ready', function()  {
-    autoUpdater.checkForUpdatesAndNotify();
+    autoUpdater.checkForUpdates();
     log.info(app.getVersion())
     createWindow()
   })
