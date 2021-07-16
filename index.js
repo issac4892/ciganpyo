@@ -69,7 +69,7 @@ if (process.platform === 'darwin') {
 function createWindow () {  // 브라우저 창을 생성
     let win = new BrowserWindow({
       width: 450,
-      height: 700,
+      height: 680,
       center: true,
       resizable: false
     })
