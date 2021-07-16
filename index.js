@@ -2,11 +2,11 @@ const {app, BrowserWindow, Notification} = require('electron')
 const {autoUpdater} = require('electron-updater')
 const log = require('electron-log')
 
-Object.defineProperty(app, 'isPackaged', {
-  get() {
-    return true
-  }
-})
+//Object.defineProperty(app, 'isPackaged', {
+//  get() {
+//    return true
+//  }
+//})
 
 function notifyupdate () {
   new Notification({title: "업데이트 가능", body: "업데이트 후 시작합니다."}).show()
