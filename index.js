@@ -9,7 +9,7 @@ Object.defineProperty(app, 'isPackaged', {
 })
 
 function notifyupdate () {
-  new Notification({title: "업데이트 가능", body: "업데이트를 확인했습니다. 다운로드 후 다음 실행 때 업데이트 될 예정입니다."}).show()
+  new Notification({title: "업데이트 가능", body: "업데이트 후 시작합니다."}).show()
 }
 
 // Logger
