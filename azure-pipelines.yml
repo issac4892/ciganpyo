@@ -22,5 +22,6 @@ steps:
   displayName: 'Install dependencies'
   
 - script: |
-    powershell [Environment]::SetEnvironmentVariable("GH_TOKEN",${env:GH_TOKEN},"User") && yarn deploy
+    set GH_TOKEN = %GH_TOKEN%"
+    yarn deploy
   displayName: 'Build and Deploy'
