@@ -21,7 +21,8 @@ steps:
 - script: yarn install
   displayName: 'Install dependencies'
   
-- script: |
-    set GH_TOKEN = %GH_TOKEN%"
-    yarn deploy
+
+- script: yarn deploy
+  env:
+    GH_TOKEN: $(GH_TOKEN)
   displayName: 'Build and Deploy'
